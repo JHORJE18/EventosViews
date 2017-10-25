@@ -4,13 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     //Variables vista
     private RelativeLayout rl;
     private Button btnFondo, btnLetra;
+    private CheckBox cbMostrar;
+    private TextView txtOculto;
 
     //Extra variables
     private boolean fondoTint = false;
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         rl = (RelativeLayout) findViewById(R.id.relativaLay);
         btnFondo = (Button) findViewById(R.id.btnFondo);
         btnLetra = (Button) findViewById(R.id.btnLine);
+        cbMostrar = (CheckBox) findViewById(R.id.cbMostrar);
+        txtOculto = (TextView) findViewById(R.id.txtOculto);
     }
 
     public void onClick(View v){
@@ -58,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
                     btnLetra.setTextColor(getColor(R.color.Negro));
                     btnLetra.setText("Letras rojas");
                     letraTint = false;
+                }
+                break;
+
+            //Checkbox texto oculto
+            case R.id.cbMostrar:
+                if (cbMostrar.isChecked()){
+                    txtOculto.setVisibility(View.VISIBLE);
+                } else {
+                    txtOculto.setVisibility(View.INVISIBLE);
                 }
                 break;
         }
