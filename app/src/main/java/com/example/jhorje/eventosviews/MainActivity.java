@@ -1,5 +1,6 @@
 package com.example.jhorje.eventosviews;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnFondo, btnLetra;
     private CheckBox cbMostrar;
     private TextView txtOculto;
+    private TextView txtLargaPuls;
 
     //Extra variables
     private boolean fondoTint = false;
@@ -32,6 +35,21 @@ public class MainActivity extends AppCompatActivity {
         btnLetra = (Button) findViewById(R.id.btnLine);
         cbMostrar = (CheckBox) findViewById(R.id.cbMostrar);
         txtOculto = (TextView) findViewById(R.id.txtOculto);
+        txtLargaPuls = (TextView) findViewById(R.id.txtLargo);
+
+        //Asignamos valor larga pulsación
+        txtLargaPuls.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Context context = getApplicationContext();
+                CharSequence text = "¡Muchas Gracias!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                return false;
+            }
+        });
     }
 
     public void onClick(View v){
