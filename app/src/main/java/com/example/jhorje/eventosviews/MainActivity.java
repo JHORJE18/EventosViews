@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout rl;
     private Button btnFondo, btnLetra;
     private CheckBox cbMostrar;
-    private TextView txtOculto;
-    private TextView txtLargaPuls;
+    private TextView txtOculto, txtLargaPuls, txtPuntos;
+    private RatingBar stars;
 
     //Extra variables
     private boolean fondoTint = false;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         cbMostrar = (CheckBox) findViewById(R.id.cbMostrar);
         txtOculto = (TextView) findViewById(R.id.txtOculto);
         txtLargaPuls = (TextView) findViewById(R.id.txtLargo);
+        txtPuntos = (TextView) findViewById(R.id.txtPuntos);
+        stars = (RatingBar) findViewById(R.id.ratingBar);
 
         //Asignamos valor larga pulsación
         txtLargaPuls.setOnLongClickListener(new View.OnLongClickListener() {
@@ -50,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //Asignamos funcion al cambiar valor de las estrellas
+        stars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                txtPuntos.setText("[" + Math.round(stars.getRating()) + "/5]");
+            }
+        });
+
     }
 
     public void onClick(View v){
