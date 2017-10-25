@@ -18,9 +18,9 @@
             android:id="@+id/btnFondo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="onClick"
             android:clickable="true"
-            android:text="Fondo blanco" />
+            android:onClick="onClick"
+            android:text="Fondo rojo" />
 
         <Button
             android:id="@+id/btnLine"
