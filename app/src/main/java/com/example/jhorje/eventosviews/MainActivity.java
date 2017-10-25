@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Filtramos de que botón viene
         switch (v.getId()){
+
+            //Boton Fondo
             case R.id.btnFondo:
                 //Cambiar fondo de color
                 if (!fondoTint){
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
                     fondoTint = false;
                 }
                 break;
+
+            //Boton Linea Texto
             case R.id.btnLine:
                 //Cambiar letras
                 if (!letraTint){
