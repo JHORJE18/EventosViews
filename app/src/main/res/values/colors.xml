@@ -6,4 +6,5 @@
     <color name="Rojo">#ea1313</color>
     <color name="Estrella">#e7ea12</color>
     <color name="Transparente">#00000000</color>
+    <color name="Negro">#000000</color>
 </resources>

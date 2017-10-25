@@ -10,10 +10,11 @@ public class MainActivity extends AppCompatActivity {
 
     //Variables vista
     private RelativeLayout rl;
-    private Button btnFondo;
+    private Button btnFondo, btnLetra;
 
     //Extra variables
     private boolean fondoTint = false;
+    private boolean letraTint = false;
 
 
     @Override
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         //Asignamos variables de la vista
         rl = (RelativeLayout) findViewById(R.id.relativaLay);
         btnFondo = (Button) findViewById(R.id.btnFondo);
+        btnLetra = (Button) findViewById(R.id.btnLine);
     }
 
     public void onClick(View v){
@@ -40,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
                     rl.setBackground(getDrawable(R.color.Transparente));
                     btnFondo.setText("Fondo rojo");
                     fondoTint = false;
+                }
+                break;
+            case R.id.btnLine:
+                //Cambiar letras
+                if (!letraTint){
+                    btnLetra.setTextColor(getColor(R.color.Rojo));
+                    btnLetra.setText("Letras negras");
+                    letraTint = true;
+                } else {
+                    btnLetra.setTextColor(getColor(R.color.Negro));
+                    btnLetra.setText("Letras rojas");
+                    letraTint = false;
                 }
                 break;
         }
